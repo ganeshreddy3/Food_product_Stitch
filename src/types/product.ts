@@ -37,8 +37,11 @@ export interface VerificationResult {
   checks: VerificationCheck[];
   recommendations: string[];
   warnings: string[];
+<<<<<<< HEAD
   reportCount?: number;
   reports?: FakeReport[];
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
 }
 
 export interface VerificationCheck {
@@ -58,7 +61,10 @@ export interface FakeReport {
   createdAt: string;
   reviewedAt?: string;
   reviewedBy?: string;
+<<<<<<< HEAD
   purchaseLocation?: string;
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
 }
 
 export interface FSSAILicense {

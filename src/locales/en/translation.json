@@ -91,8 +91,13 @@
     "ph_brand": "e.g., Natural Foods Co",
     "l_fssai": "FSSAI License Number (Optional)",
     "ph_fssai": "e.g., 10020021000123",
+<<<<<<< HEAD
     "l_where": "Purchase Location (City, State, Pincode)",
     "ph_where": "e.g., Mumbai, Maharashtra 400001",
+=======
+    "l_where": "Where did you purchase?",
+    "ph_where": "e.g., Local market, Online store",
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
     "l_reason": "Reason for Reporting *",
     "ph_reason": "Describe why you believe this food product is fake or suspicious...",
     "l_evidence": "Additional Evidence",
