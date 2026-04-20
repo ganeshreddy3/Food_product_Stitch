@@ -61,11 +61,31 @@ export function VerificationResults({ result, details, onReport, onReset }: Veri
           <div className="flex flex-col md:flex-row items-center gap-6">
             <TrustScore score={result.trustScore} size="lg" />
             <div className="flex-1 text-center md:text-left">
+<<<<<<< HEAD
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-2 flex-wrap">
+=======
               <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
                 <h3 className="text-2xl font-display font-bold text-foreground">
                   {t('results.title_complete')}
                 </h3>
                 <StatusBadge status={result.status} size="lg" />
+<<<<<<< HEAD
+                {result.reportCount !== undefined && (
+                  <div className={cn(
+                    "flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border",
+                    result.reportCount > 0 
+                      ? "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/50 dark:text-red-400 dark:border-red-900/50" 
+                      : "bg-green-50 text-green-700 border-green-200 dark:bg-green-950/50 dark:text-green-400 dark:border-green-900/50"
+                  )}>
+                    {result.reportCount > 0 ? <AlertTriangle className="w-4 h-4" /> : <ShieldCheck className="w-4 h-4" />}
+                    <span>
+                      {result.reportCount} {result.reportCount === 1 ? 'Report' : 'Reports'}
+                    </span>
+                  </div>
+                )}
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
               </div>
               <p className="text-muted-foreground">
                 {result.status === 'genuine' && t('results.genuine_msg')}
@@ -248,12 +268,53 @@ export function VerificationResults({ result, details, onReport, onReset }: Veri
         </CardContent>
       </Card>
 
+<<<<<<< HEAD
+      {/* Reports List */}
+      {result.reports && result.reports.length > 0 && (
+        <Card className="border-red-200 dark:border-red-900/50">
+          <CardHeader className="bg-red-50/50 dark:bg-red-950/20 pb-3 border-b border-red-100 dark:border-red-900/30">
+            <CardTitle className="flex items-center gap-2 text-lg text-red-700 dark:text-red-400">
+              <AlertTriangle className="w-5 h-5" />
+              Community Reports ({result.reports.length})
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-4">
+            <div className="space-y-3">
+              {result.reports.map((report, index) => (
+                <div key={index} className="p-3 rounded-lg bg-red-50/50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-bold text-red-800 dark:text-red-300">
+                      Reported as {report.status}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                      {new Date(report.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground mt-1">{report.reason}</p>
+                  {report.purchaseLocation && (
+                    <p className="text-xs text-muted-foreground mt-2 italic border-t border-red-200 dark:border-red-900/30 pt-1">
+                      Reported Location: {report.purchaseLocation}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
       {/* Actions */}
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Button onClick={() => {
           generateCertificate({
             productName: details.productName || '',
+<<<<<<< HEAD
+            manufacturer: details.manufacturer || '',
+=======
             manufacturer: details.manufacturer || details.brandName || '',
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
             licenseNumber: details.licenseNumber || '',
             trustScore: result.trustScore,
             status: result.status,

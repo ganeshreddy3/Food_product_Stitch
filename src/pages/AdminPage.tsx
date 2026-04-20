@@ -15,7 +15,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useProducts, useUpdateProduct, useDeleteProduct, useFakeReports, useUpdateFakeReport, useDeleteFakeReport, useFssaiLicenses } from '@/hooks/useProducts';
 import { EditProductDialog } from '@/components/EditProductDialog';
 import { Product } from '@/types/product';
+<<<<<<< HEAD
+import { Package, Plus, ShieldCheck, LogOut, Lock, Pencil, AlertTriangle, CheckCircle, XCircle, Trash2, Bell, Settings, KeyRound, Users, UserPlus, MapPin } from 'lucide-react';
+=======
 import { Package, Plus, ShieldCheck, LogOut, Lock, Pencil, AlertTriangle, CheckCircle, XCircle, Trash2, Bell, Settings, KeyRound, Users, UserPlus } from 'lucide-react';
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
 import {
   Table,
   TableBody,
@@ -57,6 +61,22 @@ const AdminPage = () => {
     error: reportsQueryError,
     refetch: refetchReports,
   } = useFakeReports();
+<<<<<<< HEAD
+
+  const topLocation = useMemo(() => {
+    if (!fakeReports.length) return 'None';
+    const locCounts = fakeReports.reduce((acc, r) => {
+       if (r.purchase_location && r.purchase_location.trim().length > 2) {
+         acc[r.purchase_location] = (acc[r.purchase_location] || 0) + 1;
+       }
+       return acc;
+    }, {} as Record<string, number>);
+    
+    if (Object.keys(locCounts).length === 0) return 'None yet';
+    return Object.entries(locCounts).sort((a,b) => b[1] - a[1])[0][0];
+  }, [fakeReports]);
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
   const updateProduct = useUpdateProduct();
   const deleteProduct = useDeleteProduct();
   const updateFakeReport = useUpdateFakeReport();
@@ -370,7 +390,11 @@ const AdminPage = () => {
           </div>
 
           {/* Top Metrics Row */}
+<<<<<<< HEAD
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+=======
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
             <Card className="border-none shadow-lg bg-gradient-to-br from-primary/10 to-blue-500/10 backdrop-blur-md overflow-hidden relative group transform transition-transform hover:-translate-y-1 duration-300">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardContent className="p-6">
@@ -415,6 +439,24 @@ const AdminPage = () => {
                 </div>
               </CardContent>
             </Card>
+<<<<<<< HEAD
+
+            <Card className="border-none shadow-lg bg-gradient-to-br from-purple-500/10 to-indigo-500/10 backdrop-blur-md overflow-hidden relative group transform transition-transform hover:-translate-y-1 duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div className="relative z-10 truncate pr-2">
+                    <p className="text-sm font-semibold text-purple-600/80 uppercase tracking-wider mb-1">Top Risk Region</p>
+                    <h3 className="text-2xl font-black text-purple-600/90 truncate" title={topLocation}>{topLocation}</h3>
+                  </div>
+                  <div className="w-14 h-14 rounded-2xl bg-white/50 dark:bg-black/50 shadow-sm border border-white/20 flex items-center justify-center relative z-10 shrink-0">
+                    <MapPin className="w-7 h-7 text-purple-600" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
           </div>
 
           {(productsQueryFailed || reportsQueryFailed) && (
@@ -581,6 +623,10 @@ const AdminPage = () => {
                         <TableHead>Product</TableHead>
                         <TableHead>Brand / Mfr</TableHead>
                         <TableHead>Reason</TableHead>
+<<<<<<< HEAD
+                        <TableHead>Location</TableHead>
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
                         <TableHead>Status</TableHead>
                         <TableHead className="text-right w-[200px]">Actions</TableHead>
                       </TableRow>
@@ -600,6 +646,12 @@ const AdminPage = () => {
                           <TableCell className="max-w-[220px] truncate" title={r.reason}>
                             {r.reason}
                           </TableCell>
+<<<<<<< HEAD
+                          <TableCell className="max-w-[150px] truncate text-muted-foreground" title={r.purchase_location || ''}>
+                            {r.purchase_location || '-'}
+                          </TableCell>
+=======
+>>>>>>> 12933d4a2c9fe474fbaf63f144669acb7d5ef888
                           <TableCell>
                             <span
                               className={`text-xs font-medium px-2 py-0.5 rounded ${
